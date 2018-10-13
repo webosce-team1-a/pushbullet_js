@@ -1,10 +1,13 @@
 var token;
 var devID;
 
-function goback(){
-        //window.history.back();
-        location.href="index.html";
-}
+
+window.onload =" function set_token(){
+         PushBullet.APIKey= "o.IWTQpSmMDgY4nakyuAc1ErJ7euO4QUih";
+        	let res = PushBullet.devices();
+        	devID = res.devices[0].iden;
+}";
+
 
 function login() {
         //token = document.getElementById("token");
@@ -79,3 +82,8 @@ function sendMe() {
      function gonext(){
         location.href = "test.html";
      }
+
+function goback(){
+        //window.history.back();
+        location.href="index.html";
+}
