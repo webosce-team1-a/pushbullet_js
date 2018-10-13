@@ -3,13 +3,10 @@ var devID;
 var login_flag=false;
 
 function set_token(){
-	if(login_flag){
-         	PushBullet.APIKey= "o.IWTQpSmMDgY4nakyuAc1ErJ7euO4QUih";
-        	let res = PushBullet.devices();
-        	devID = res.devices[0].iden;
-	}
+	PushBullet.APIKey= "o.IWTQpSmMDgY4nakyuAc1ErJ7euO4QUih";
+        let res = PushBullet.devices();
+        devID = res.devices[0].iden;
 }
-
 window.onload=set_token;
 
 function login() {
@@ -21,8 +18,8 @@ function login() {
         let res = PushBullet.devices();
         devID = res.devices[0].iden;
 	alert("login to PushBullet on WebOS");
-	//location.href="main.html";
-    }
+	location.href="main.html";
+}
 
 function sendMe() {
         let msg = document.getElementById("msg");
