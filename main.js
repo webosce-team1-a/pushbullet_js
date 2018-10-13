@@ -2,12 +2,13 @@ var token;
 var devID;
 
 
-window.onload =" function set_token(){
+function set_token(){
          PushBullet.APIKey= "o.IWTQpSmMDgY4nakyuAc1ErJ7euO4QUih";
         	let res = PushBullet.devices();
         	devID = res.devices[0].iden;
-}";
-
+}
+ 
+window.onload = set_token;
 
 function login() {
         //token = document.getElementById("token");
