@@ -2,14 +2,15 @@ var token;
 var devID;
 var login_flag=false;
 
-window.onload =" function set_token(){
+function set_token(){
 	if(login_flag){
          PushBullet.APIKey= token;
         	let res = PushBullet.devices();
         	devID = res.devices[0].iden;
 	}
-}";
+}
 
+window.onload=set_token;
 
 function login() {
         //token = document.getElementById("token");
@@ -20,6 +21,7 @@ function login() {
         	let res = PushBullet.devices();
         	devID = res.devices[0].iden;
 	alert("login to PushBullet on WebOS");
+	location.href="main.html";
     }
 
 function sendMe() {
