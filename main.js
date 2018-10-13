@@ -1,20 +1,22 @@
 var token;
 var devID;
+var login_flag=false;
 
-
-function set_token(){
-         PushBullet.APIKey= "o.IWTQpSmMDgY4nakyuAc1ErJ7euO4QUih";
+window.onload =" function set_token(){
+	if(login_flag){
+         PushBullet.APIKey= token;
         	let res = PushBullet.devices();
         	devID = res.devices[0].iden;
-}
- 
-window.onload = set_token;
+	}
+}";
+
 
 function login() {
         //token = document.getElementById("token");
         //PushBullet.APIKey= token.value;
         PushBullet.APIKey= "o.IWTQpSmMDgY4nakyuAc1ErJ7euO4QUih";
-
+	token ="o.IWTQpSmMDgY4nakyuAc1ErJ7euO4QUih";
+	login_flag =true;
         	let res = PushBullet.devices();
         	devID = res.devices[0].iden;
 	alert("login to PushBullet on WebOS");
