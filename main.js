@@ -16,17 +16,15 @@ function login() {
 	alert("login to PushBullet on WebOS");
     }
 
-function send() {
+function sendMe() {
         let msg = document.getElementById("msg");
-        PushBullet.push("note", devID, null, {title: "MAG", body: msg.value});
+        PushBullet.push("note", devID, null, {title: "MSG", body: msg.value});
     }
 
-    function send_to() {
-        let msg_to = document.getElementById("msg_to");
+    function sendFriends() {
+        let msg_to = document.getElementById("msg");
         let email = document.getElementById("email");
-        document.getElementById("email").innerHTML = "send msg to : "+ email.value;
-
-        PushBullet.push("link", null, email.value, {title: "MAG", body: msg_to.value});
+        PushBullet.push("link", null, email.value, {title: "MSG", body: msg_to.value});
     }
 
     function get_user() {
