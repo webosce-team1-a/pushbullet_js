@@ -4,7 +4,7 @@ var login_flag=false;
 
 function set_token(){
 	if(login_flag){
-         PushBullet.APIKey= token;
+         	PushBullet.APIKey= "o.IWTQpSmMDgY4nakyuAc1ErJ7euO4QUih";
         	let res = PushBullet.devices();
         	devID = res.devices[0].iden;
 	}
@@ -18,10 +18,10 @@ function login() {
         PushBullet.APIKey= "o.IWTQpSmMDgY4nakyuAc1ErJ7euO4QUih";
 	token ="o.IWTQpSmMDgY4nakyuAc1ErJ7euO4QUih";
 	login_flag =true;
-        	let res = PushBullet.devices();
-        	devID = res.devices[0].iden;
+        let res = PushBullet.devices();
+        devID = res.devices[0].iden;
 	alert("login to PushBullet on WebOS");
-	location.href="main.html";
+	//location.href="main.html";
     }
 
 function sendMe() {
