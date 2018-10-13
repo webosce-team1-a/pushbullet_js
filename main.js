@@ -18,7 +18,7 @@ function login() {
         let res = PushBullet.devices();
         devID = res.devices[0].iden;
 	alert("login to PushBullet on WebOS");
-	location.href="main.html";
+	location.href="index.html";
 }
 
 function sendMe() {
