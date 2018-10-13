@@ -61,37 +61,45 @@ function sendMeFile() {
         });
      }
 
-     function del_history() {
-        document.getElementById("history").innerHTML = "delete ";
-        PushBullet.pushHistory(function(err, res) {
-        if(err) {
-            throw err;
-        } else {
-                let res =PushBullet.pushHistory();
-                for(var i=0; i<res.pushes.length; i++) {
+ function del_history() {
+    document.getElementById("history").innerHTML = "delete ";
+    PushBullet.pushHistory(function(err, res) {
+    if(err) {
+        throw err;
+    } else {
+            let res =PushBullet.pushHistory();
+            for(var i=0; i<res.pushes.length; i++) {
+                if(res.pushes[i].active) {
                     var pushId = res.pushes[i].iden;
                     PushBullet.deletePush(pushId);
                 }
-                document.getElementById("history").innerHTML = "delete history";
+                else
+                    break;
             }
-        });
-    }
+            document.getElementById("history").innerHTML = "delete history";
+        }
+    });
+}
 
-     function get_history() {
-        PushBullet.pushHistory(function(err, res) {
-            if(err){
-                throw err;
-            }
-            else {
-                let push=res.pushes[0].body;
-                for (var i = 1; i < res.pushes.length; i++) {
-                    push = push +" "+res.pushes[i].body;
-                }
-                document.getElementById("history").innerHTML = push;
+ function get_history() {
+    PushBullet.pushHistory(function(err, res) {
+        if(err){
+            throw err;
+        }
+        else {
+            let push=res.pushes[0].body;
+            for (var i = 1; i < res.pushes.length; i++) {
+                if(res.pushes[i].active)
+                    push = push +'\n'+ res.pushes[i].body;
 
+                else
+                    break;
             }
-        });
-     }
+            document.getElementById("history").innerHTML = push;
+        }
+    });
+ }
+
 
      function gonext(){
         location.href = "test.html";
