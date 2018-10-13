@@ -11,12 +11,9 @@ function login() {
         //PushBullet.APIKey= token.value;
         PushBullet.APIKey= "o.IWTQpSmMDgY4nakyuAc1ErJ7euO4QUih";
 
-
-        let res = PushBullet.devices();
-        devID = res.devices[0].iden;
-        document.getElementById("result").innerHTML = "Your Device ID : "+ devID;
-
-        PushBullet.push("note",devID, null, {title: "LOGIN", body: "login to PushBullet on WebOS"});
+        	let res = PushBullet.devices();
+        	devID = res.devices[0].iden;
+	alert("login to PushBullet on WebOS");
     }
 
 function send() {
