@@ -26,6 +26,18 @@ function sendMe() {
         PushBullet.push("note", devID, null, {title: "MSG", body: msg.value});
     }
 
+function sendMeFile() {
+    document.getElementById('files').addEventListener('change', function(e) {
+    var file = this.files[0];
+    PushBullet.pushFile(devID, null, file, "pushing files", function(err, res) {
+    if(err) {
+        throw err;
+    } else {
+    }
+    });
+});
+}
+
     function sendFriends() {
         let msg_to = document.getElementById("msg");
         let email = document.getElementById("email");
