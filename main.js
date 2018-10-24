@@ -3,7 +3,6 @@ var devID;
 var login_flag=false;
 
 
-window.onloded
 
 function set_token(){
 	PushBullet.APIKey= token.value;
