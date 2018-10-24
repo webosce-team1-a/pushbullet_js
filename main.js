@@ -2,19 +2,26 @@ var token;
 var devID;
 var login_flag=false;
 
+//인아의 말 = 테스트해보려고 제껄로 토큰을 다 넣었습니다!
+
 function set_token(){
 	PushBullet.APIKey= "o.IWTQpSmMDgY4nakyuAc1ErJ7euO4QUih";
         let res = PushBullet.devices();
-        devID = res.devices[0].iden;
+        devID = res.devices[0].iden;	
 }
 window.onload=set_token;
 
 function login() {
-        //token = document.getElementById("token");
+	//실제로 살때는 아래 주석 처리된 부분을 살리고 
+	//token = document.getElementById("token");
         //PushBullet.APIKey= token.value;
+	
+	//아래 두줄을 지우세용
         PushBullet.APIKey= "o.IWTQpSmMDgY4nakyuAc1ErJ7euO4QUih";
 	token ="o.IWTQpSmMDgY4nakyuAc1ErJ7euO4QUih";
-	login_flag =true;
+	
+	login_flag =true;	// 사실 필요 없음
+	
         let res = PushBullet.devices();
         devID = res.devices[0].iden;
 	alert("login to PushBullet on WebOS");
@@ -101,9 +108,10 @@ function sendMeFile() {
  }
 
 
-     function gonext(){
+//
+  function gonext(){
         location.href = "test.html";
-     }
+}
 
 function goback(){
         //window.history.back();
