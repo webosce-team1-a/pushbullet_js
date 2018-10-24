@@ -26,27 +26,6 @@ function login() {
 }
 
 
-document.getElementById('send').addEventListener('click',function(){
-    var value = document.getElementById('sending_text').value;
-    if(value) {
-        /*   sendText(value);*/
-        PushBullet.push("note",devID,null,{title:"text by webOS", body:value});
-        document.getElementById('sending_text').value='';
-    }   
-});
-
-document.getElementById('sending_text').addEventListener('keydown',function(e){
-    var value = this.value;
-    if(value&&e.code === 'Enter') {
-        PushBullet.push("note",devID,null,{title:"text by webOS", body:value});
-        document.getElementById('sending_text').value='';
-    }   
-});
-
-
-
-
-
 function sendMe() {
     let msg = document.getElementById("msg");
     PushBullet.push("note", devID, null, {title: "MSG", body: msg.value});
