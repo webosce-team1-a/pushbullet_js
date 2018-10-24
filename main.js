@@ -5,11 +5,10 @@ var login_flag=false;
 
 
 function set_token(){
-    if(typeof(Storage) !== "undefined"){
-        PushBullet.APIKey= localStorage.getItem("TOKEN");
-        let res = PushBullet.devices();
-        devID = res.devices[0].iden;	
-    }
+    
+    PushBullet.APIKey= localStorage.getItem("TOKEN");
+    let res = PushBullet.devices();
+    devID = res.devices[0].iden;	
 }
 window.onload=set_token;
 
@@ -28,7 +27,7 @@ function login() {
 function logout(){
     if(typeof(Storage) !== "undefined")
         localStorage.removeItem("TOKEN");
-
+    location.href="login.html"
 }
 
 function sendMe() {
@@ -92,7 +91,7 @@ function del_history() {
         }
     });
 }
-/*
+
 function get_history() {
     PushBullet.pushHistory(function(err, res) {
         if(err){
@@ -111,9 +110,9 @@ function get_history() {
         }
     });
 }
-*/
 
-//
+
+
 function gonext(){
     location.href = "test.html";
 }
