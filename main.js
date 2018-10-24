@@ -12,20 +12,15 @@ function set_token(){
 window.onload=set_token;
 
 function login() {
-	//실제로 살때는 아래 주석 처리된 부분을 살리고 
-	//token = document.getElementById("token");
-        //PushBullet.APIKey= token.value;
-	
-	//아래 두줄을 지우세용
-        PushBullet.APIKey= "o.IWTQpSmMDgY4nakyuAc1ErJ7euO4QUih";
-	token ="o.IWTQpSmMDgY4nakyuAc1ErJ7euO4QUih";
+	token = document.getElementById("token");
+    PushBullet.APIKey= token.value;
 	
 	login_flag =true;	// 사실 필요 없음
 	
-        let res = PushBullet.devices();
-        devID = res.devices[0].iden;
+    let res = PushBullet.devices();
+    devID = res.devices[0].iden;
 	alert("login to PushBullet on WebOS");
-	location.href="../index.html";
+	location.href="../frame.html";
 }
 
 function sendMe() {
@@ -115,5 +110,5 @@ function sendMeFile() {
 
 function goback(){
         //window.history.back();
-        location.href="index.html";
+        location.href="frame.html";
 }
