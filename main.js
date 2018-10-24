@@ -25,6 +25,11 @@ function login() {
     location.href="../frame.html";
 }
 
+function logout(){
+    if(typeof(Storage) !== "undefined")
+        localStorage.removeItem("TOKEN");
+
+}
 
 function sendMe() {
     let msg = document.getElementById("msg");
