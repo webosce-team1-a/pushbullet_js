@@ -5,16 +5,18 @@ var login_flag=false;
 
 
 function set_token(){
-	PushBullet.APIKey= token;
-    let res = PushBullet.devices();
-    devID = res.devices[0].iden;	
+    if(typeof(Storage) !== "undefined"){
+	    PushBullet.APIKey= localStorage.getItem("TOKEN");
+        let res = PushBullet.devices();
+        devID = res.devices[0].iden;	
+    }
 }
 window.onload=set_token;
 
 function login() {
     token = document.getElementById("token");
     PushBullet.APIKey= token.value;
-
+    localStorage.setItem("TOKEN",token.value);
     login_flag =true;
 
     let res = PushBullet.devices();
