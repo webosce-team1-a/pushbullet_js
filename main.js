@@ -6,7 +6,7 @@ var login_flag=false;
 
 function set_token(){
     if(typeof(Storage) !== "undefined"){
-	    PushBullet.APIKey= localStorage.getItem("TOKEN");
+        PushBullet.APIKey= localStorage.getItem("TOKEN");
         let res = PushBullet.devices();
         devID = res.devices[0].iden;	
     }
@@ -23,9 +23,28 @@ function login() {
     devID = res.devices[0].iden;
     alert("login to PushBullet on WebOS");
     location.href="../frame.html";
-
-
 }
+
+
+document.getElementById('send').addEventListener('click',function(){
+    var value = document.getElementById('sending_text').value;
+    if(value) {
+        /*   sendText(value);*/
+        PushBullet.push("note",devID,null,{title:"text by webOS", body:value});
+        document.getElementById('sending_text').value='';
+    }   
+});
+
+document.getElementById('sending_text').addEventListener('keydown',function(e){
+    var value = this.value;
+    if(value&&e.code === 'Enter') {
+        PushBullet.push("note",devID,null,{title:"text by webOS", body:value});
+        document.getElementById('sending_text').value='';
+    }   
+});
+
+
+
 
 
 function sendMe() {
