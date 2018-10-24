@@ -5,7 +5,7 @@ var login_flag=false;
 
 
 function set_token(){
-	PushBullet.APIKey= token.value;
+	PushBullet.APIKey= token;
     let res = PushBullet.devices();
     devID = res.devices[0].iden;	
 }
