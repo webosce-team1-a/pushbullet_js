@@ -122,7 +122,12 @@ function getHistory() {
             }
         });
     }
-
+function sendMe2() {
+    let msg = document.getElementById("msg");
+    PushBullet.push("note", devID, null, {title: "MSG", body: msg.value}, function (err, res) {
+            getHistory();
+        });
+}
 
 function gonext(){
     location.href = "test.html";
