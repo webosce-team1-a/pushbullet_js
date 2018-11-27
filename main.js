@@ -2,8 +2,6 @@ var token;
 var devID;
 var login_flag=false;
 
-
-
 function set_token(){
     
     PushBullet.APIKey= localStorage.getItem("TOKEN");
@@ -21,7 +19,6 @@ function login() {
     let res = PushBullet.devices();
     devID = res.devices[0].iden;
     alert("login to PushBullet on WebOS");
-    location.href="../frame.html";
 }
 
 function logout(){
@@ -111,6 +108,20 @@ function get_history() {
     });
 }
 
+function getHistory() {
+        PushBullet.pushHistory(function(err, res) {
+            if(err) {
+                throw err;
+            } else {
+                let push ="";
+                for(var i=0; i<res.pushes.length; i++){
+                   if(res.pushes[i].active) {
+                        push = push + " " + res.pushes[i].body;
+                   }
+               }
+            }
+        });
+    }
 
 
 function gonext(){
